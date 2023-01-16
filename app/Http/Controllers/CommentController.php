@@ -42,6 +42,11 @@ class CommentController extends Controller
      */
     public function store(Request $request)
     {
+
+      $request->validate([
+            'name' => 'required',
+            'comment' => 'required',
+        ]);
         //method 1 to insert database use save()
 
         // $data = new comment();
@@ -84,11 +89,11 @@ class CommentController extends Controller
     {
         //id احضار البيانات المتعلقة بال
 
-        // $data=comment::where('id',$id)->first();
+        $data=comment::where('id',$id)->first();
 
         //or
 
-        $data=comment::findOrfail($id);
+        // $data=comment::findOrfail($id);
         return view('comments.edit',compact('data'));
     }
 

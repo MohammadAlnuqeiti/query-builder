@@ -1,6 +1,8 @@
 <?php
 
 use App\Http\Controllers\CommentController;
+use App\Http\Controllers\IdNumberController;
+use App\Http\Controllers\MovieController;
 use App\Http\Controllers\PostController;
 use Illuminate\Support\Facades\Route;
 
@@ -39,3 +41,13 @@ Route::get('comments/restore/{id}',[CommentController::class,'restore'])->name('
 Route::get('comments/forcedelete/{id}',[CommentController::class,'forcedelete'])->name('comments.delete');
 Route::get('comments/trushed/{id}',[CommentController::class,'trushed'])->name('comments.trushed');
 
+
+//------------------------------------ movie controller
+
+
+Route::resource('movies',MovieController::class);
+
+
+//------------------------------------ relation
+
+Route::get('users',[IdNumberController::class,'index']);

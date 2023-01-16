@@ -1,5 +1,5 @@
 <h1>index page</h1>
-
+<a href="{{route('comments.create')}}">create comment</a><br><br>
 
 <table border="1">
     <tr>
