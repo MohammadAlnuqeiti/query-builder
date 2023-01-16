@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CommentController;
 use App\Http\Controllers\PostController;
 use Illuminate\Support\Facades\Route;
 
@@ -30,3 +31,11 @@ Route::controller(PostController::class)->group(function(){
     Route::get('/post/delete','deleteAll')->name('posts.deleteAll');
     Route::get('/post/truncate','deleteTruncate')->name('posts.truncate');
 });
+
+//-------------------model & controller resources
+
+Route::resource('comments',CommentController::class);
+Route::get('comments/restore/{id}',[CommentController::class,'restore'])->name('comments.restore');
+Route::get('comments/forcedelete/{id}',[CommentController::class,'forcedelete'])->name('comments.delete');
+Route::get('comments/trushed/{id}',[CommentController::class,'trushed'])->name('comments.trushed');
+
