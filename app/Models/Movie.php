@@ -12,6 +12,11 @@ class Movie extends Model
     use SoftDeletes;
 
 
-    protected $fillable=['movie_name','movie_description','movie_genre'];
-    
+    protected $fillable = ['movie_name', 'movie_description', 'movie_genre'];
+
+
+    public function image()
+    {
+        return $this->hasOne(ImageMovie::class, 'movie_id');
+    }
 }

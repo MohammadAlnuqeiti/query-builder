@@ -24,7 +24,7 @@ class movieRequest extends FormRequest
     public function rules() // بكتب الرولز اللي بدي اساها عبارة عن اسم الحقل والتحقق اللي بدي يتم عليه
     {
         return [
-            'movie_name' => 'required|max:5',
+            'movie_name' => 'required',
             'movie_description' => 'required',
             'movie_genre' => 'required'
         ];
@@ -35,7 +35,7 @@ public function messages()
 {
     return [
         'movie_name.required' => 'A title is required',
-        'movie_name.max' => 'A title is 5 digits maximum',
+        // 'movie_name.max' => 'A title is 5 digits maximum',
         'movie_description.required' => 'A message is required',
         'movie_genre.required' => 'A message is required',
     ];
